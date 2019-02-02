@@ -10,6 +10,7 @@ namespace FixedAssets
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
