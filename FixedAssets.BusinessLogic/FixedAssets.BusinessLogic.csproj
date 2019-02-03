@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionAssets.cs" />
     <Compile Include="BaseForAsset.cs" />
     <Compile Include="DataModels\Computer.cs" />
     <Compile Include="DataModels\Furniture.cs" />

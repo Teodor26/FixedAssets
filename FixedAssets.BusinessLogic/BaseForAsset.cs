@@ -13,5 +13,5 @@ namespace FixedAssets.BusinessLogic
         public int Expiration { get; set; }
 
         public Dictionary<string, int> dictionary = new Dictionary<string, int>();
-           }
+    }
 }

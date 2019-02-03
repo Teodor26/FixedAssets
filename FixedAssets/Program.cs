@@ -1,4 +1,5 @@
-﻿using FixedAssets.BusinessLogic.DataModels;
+﻿using FixedAssets.BusinessLogic;
+using FixedAssets.BusinessLogic.DataModels;
 using System;
 
 namespace FixedAssets
@@ -8,7 +9,7 @@ namespace FixedAssets
         
         static void Main(string[] args)
         {
-
+           
            
         }
     }

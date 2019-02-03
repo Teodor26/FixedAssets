@@ -8,6 +8,15 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class Computer:BaseForAsset
     {
-        
+        public Computer()
+        {
+        }
+
+        public Computer(string Name, int Expiration)
+        {
+            this.Name = Name;
+            this.Expiration = Expiration;
+            dictionary.Add(Name, Expiration);
+        }
     }
 }
