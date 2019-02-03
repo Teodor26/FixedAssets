@@ -11,5 +11,8 @@ namespace FixedAssets.BusinessLogic
         public string Name { get; set; }
 
         public DateTime Expiration { get; set; }
+
+        public List<BaseForAsset> ListItems = new List<BaseForAsset>();
+        public abstract void GetList();
     }
 }
