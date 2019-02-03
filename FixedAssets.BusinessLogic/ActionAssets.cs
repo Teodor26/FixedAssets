@@ -17,7 +17,7 @@ namespace FixedAssets.BusinessLogic
     public class ActionAssets : BaseForAsset
     {
 
-        BaseForAsset[] assets = new BaseForAsset[5];
+        BaseForAsset[] assets = new BaseForAsset[4];
 
         Dictionary<int, Action> actionList = new Dictionary<int, Action>();
 
@@ -35,6 +35,14 @@ namespace FixedAssets.BusinessLogic
                  
         }
 
+        public void ShowName()
+        {
+            int j = 1;
+            foreach(var c in assets)
+            {
+                Console.WriteLine("{0}.{1}",j++,c.Name);
+            }
+        }
 
 
         public void GetList()
