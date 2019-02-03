@@ -12,9 +12,9 @@ namespace FixedAssets.BusinessLogic.DataModels
         public HouseHoldItem()
         {
             Name = "Soap";
-            Expiration = 30;
-          
+            Expiration = 30;          
         }
+
         public override void methodList()
         {
             dictionary.Add(Name, Expiration);

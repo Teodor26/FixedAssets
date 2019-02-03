@@ -14,6 +14,6 @@ namespace FixedAssets.BusinessLogic
 
         public virtual void methodList() { }
 
-        public Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        public static Dictionary<string, int> dictionary = new Dictionary<string, int>();
     }
 }

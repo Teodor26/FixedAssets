@@ -44,7 +44,6 @@ namespace FixedAssets.BusinessLogic
             }
         }
 
-
         public void GetList()
         {
 
