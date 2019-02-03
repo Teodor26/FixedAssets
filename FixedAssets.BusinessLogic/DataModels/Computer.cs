@@ -8,15 +8,18 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class Computer:BaseForAsset
     {
+       
         public Computer()
         {
+            Name = "Computer";
+            Expiration = 1000;
         }
 
-        public Computer(string Name, int Expiration)
+        public override void methodList()
         {
-            this.Name = Name;
-            this.Expiration = Expiration;
-            dictionary.Add(Name, Expiration);
+            dictionary.Add(Name, Expiration);            
         }
+
+      
     }
 }

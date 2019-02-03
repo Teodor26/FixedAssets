@@ -8,15 +8,18 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class Furniture : BaseForAsset
     {
+       
+
         public Furniture()
         {
+            Name = "Furniture";
+            Expiration = 365;
+            
         }
 
-        public Furniture(string Name, int Expiration)
+        public override void methodList()
         {
-            this.Name = Name;
-            this.Expiration = Expiration;
-            dictionary.Add(Name,Expiration);
+            dictionary.Add(Name, Expiration);
         }
     }
 }
