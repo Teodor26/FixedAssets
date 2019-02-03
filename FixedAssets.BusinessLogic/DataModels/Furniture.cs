@@ -8,9 +8,6 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class Furniture : BaseForAsset
     {
-        public override void GetList()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

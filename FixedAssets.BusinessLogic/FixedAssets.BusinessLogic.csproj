@@ -44,7 +44,7 @@
     <Compile Include="BaseForAsset.cs" />
     <Compile Include="DataModels\Computer.cs" />
     <Compile Include="DataModels\Furniture.cs" />
-    <Compile Include="DataModels\ItemEnum.cs" />
+    <Compile Include="DataModels\HouseHoldItem.cs" />
     <Compile Include="DataModels\Officeitems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

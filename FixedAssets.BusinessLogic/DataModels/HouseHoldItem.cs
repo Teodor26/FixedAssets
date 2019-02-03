@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace FixedAssets.BusinessLogic.DataModels
 {
-   public class ItemEnum
+    public class HouseHoldItem : BaseForAsset
     {
-        public enum AllItems
-        {
-            Computer = 1,
-            Furniture,
-            Officeitems,
-        }
+       
     }
 }
