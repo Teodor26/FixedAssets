@@ -19,14 +19,8 @@ namespace FixedAssets
                 Console.WriteLine("Opt the next equimpent to purchase:");
                 action.ShowName(); //показать список вещей, которые можно приобрести
                 if (int.TryParse(Console.ReadLine(), out int Opt))
-                {
-                    if (Opt == 5)
-                    {
-                        Console.Clear();
-                        action.GetList(); //показать список приобретенных вещей
-                        Console.ReadLine();
-                    }
-                    else if (Opt == 6)
+                {                    
+                    if (Opt == 7)
                     {
                         finish = false;
 

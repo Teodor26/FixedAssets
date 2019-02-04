@@ -17,5 +17,7 @@ namespace FixedAssets.BusinessLogic
         public virtual void methodList() { }
 
         public static List<BaseForAsset> dictionary = new List<BaseForAsset>();
+
+        public static List<BaseForAsset> outOfDaysList = new List<BaseForAsset>();
     }
 }

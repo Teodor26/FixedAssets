@@ -24,7 +24,7 @@ namespace FixedAssets.BusinessLogic
 
         Dictionary<int, Action> actionList = new Dictionary<int, Action>();
 
-        public delegate void Message(string mes);       
+        public delegate void Message(string mes);     
 
         private Message _mes;
 
@@ -43,7 +43,9 @@ namespace FixedAssets.BusinessLogic
             actionList.Add((int)Items.Computer, assets[0].methodList);
             actionList.Add((int)Items.Furniture, assets[1].methodList);
             actionList.Add((int)Items.HouseholdItem, assets[2].methodList);
-            actionList.Add((int)Items.Officeitems, assets[3].methodList);                 
+            actionList.Add((int)Items.Officeitems, assets[3].methodList);
+            actionList.Add(5, ShowList);
+            actionList.Add(6, ShowListOutOfDay);
         }
 
         public void ShowName()
@@ -53,8 +55,9 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0}.{1}",j++,c.Name);
             }
-            _mes("5.Show the list"); 
-            _mes("6.Log out");
+            _mes("5.Show the list's equimpemnt which is using now");
+            _mes("6.Show the list's equimpemnt which is not using"); 
+            _mes("7.Log out");
         }
 
         public void GetList()
@@ -63,6 +66,7 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0} {1} days left", c.Name, c.Expiration);
             }
+            Console.ReadLine();
         }
 
         public void Choise(int Opt)
@@ -85,6 +89,13 @@ namespace FixedAssets.BusinessLogic
             }
         }
 
+        public void ShowListOutOfDay()
+        {
+            foreach(var c in outOfDaysList)
+            {
+                Console.WriteLine("{0} {1}", c.Name, c.Expiration=0);
+            }
+        }
 
         public void Work()
         {
@@ -101,6 +112,7 @@ namespace FixedAssets.BusinessLogic
                 }
                 if(dictionary[i].Expiration <= 0)
                 {
+                    outOfDaysList.Add(dictionary[i]);
                     dictionary.Remove(dictionary[i]);
                 }
             }
