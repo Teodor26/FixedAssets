@@ -104,7 +104,7 @@ namespace FixedAssets.BusinessLogic
         {
             foreach(var c in outOfDaysList)
             {
-                Console.WriteLine("Item {0} - has expires ", c.Name);
+                Console.WriteLine("Item {0} - has already expired ", c.Name);
             }
             Console.ReadLine();
         }
@@ -120,7 +120,7 @@ namespace FixedAssets.BusinessLogic
                 dictionary[i].Expiration = dictionary[i].Expiration - terminate;                
                 if ((double)dictionary[i].Expiration / (double)dictionary[i].FirstExpiration <= Percent)
                 {
-                    Console.WriteLine($"70 percent of depreciation of {dictionary[i].Name}. You should purcase new {dictionary[i].Name}.");
+                    Console.WriteLine($"70 percent of depreciation of {dictionary[i].Name}. You should purchase new {dictionary[i].Name}.");
                 }
                 if(dictionary[i].Expiration <= 0)
                 {
