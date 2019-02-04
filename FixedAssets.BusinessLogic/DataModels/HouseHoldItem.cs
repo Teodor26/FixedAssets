@@ -17,10 +17,8 @@ namespace FixedAssets.BusinessLogic.DataModels
 
         public override void methodList()
         {
-            dictionary.Add(new Furniture()
-            {
-
-            });
+            dictionary.Add(new HouseHoldItem()
+            {});
         }
     }
 }

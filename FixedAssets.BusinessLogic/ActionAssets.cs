@@ -14,6 +14,7 @@ namespace FixedAssets.BusinessLogic
         Officeitems,
         HouseholdItem
     }
+
     public class ActionAssets : BaseForAsset
     {
 
@@ -22,12 +23,14 @@ namespace FixedAssets.BusinessLogic
         Dictionary<int, Action> actionList = new Dictionary<int, Action>();
 
         public delegate void Message(string mes);
+
         Message _mes;
 
         public void Register(Message mes)
         {
             _mes = mes;
         }
+
         public ActionAssets()
         {
             assets[0] = new Computer();
@@ -48,11 +51,11 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0}.{1}",j++,c.Name);
             }
+            Console.WriteLine("5.Log out");
         }
 
         public void GetList()
         {
-
             foreach (var c in dictionary)
             {
                 Console.WriteLine("{0} {1} days", c.Name, c.Expiration);
@@ -74,7 +77,7 @@ namespace FixedAssets.BusinessLogic
         {
             foreach(var c in dictionary)
             {
-                Console.WriteLine("{0} {1}",c.Name, c.Expiration);
+                Console.WriteLine("{0} {1}", c.Name, c.Expiration);
             }
         }       
 
