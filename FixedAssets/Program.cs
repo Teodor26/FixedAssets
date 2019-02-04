@@ -20,7 +20,7 @@ namespace FixedAssets
                 action.ShowName(); //показать список вещей, которые можно приобрести
                 if (int.TryParse(Console.ReadLine(), out int Opt))
                 {                    
-                    if (Opt == 7)
+                    if (Opt == 8)
                     {
                         finish = false;
 

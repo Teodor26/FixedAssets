@@ -46,6 +46,7 @@ namespace FixedAssets.BusinessLogic
             actionList.Add((int)Items.Officeitems, assets[3].methodList);
             actionList.Add(5, ShowList);
             actionList.Add(6, ShowListOutOfDay);
+            actionList.Add(7, Work);
         }
 
         public void ShowName()
@@ -56,8 +57,9 @@ namespace FixedAssets.BusinessLogic
                 Console.WriteLine("{0}.{1}",j++,c.Name);
             }
             _mes("5.Show the list's equimpemnt which is using now");
-            _mes("6.Show the list's equimpemnt which is not using"); 
-            _mes("7.Log out");
+            _mes("6.Show the list's equimpemnt which is not using");
+            _mes("7.Time to work");
+            _mes("8.Log out");
         }
 
         public void GetList()
@@ -66,15 +68,14 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0} {1} days left", c.Name, c.Expiration);
             }
-            Console.ReadLine();
+            
         }
 
         public void Choise(int Opt)
         {
             if (actionList.ContainsKey(Opt))
             {
-                actionList[Opt]();
-                Work();
+                actionList[Opt]();               
             }
             else
                 _mes("That is wrong number. Input correct number");
@@ -95,6 +96,7 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0} {1}", c.Name, c.Expiration=0);
             }
+            Console.ReadLine();
         }
 
         public void Work()
