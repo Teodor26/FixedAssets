@@ -13,6 +13,7 @@ namespace FixedAssets.BusinessLogic.DataModels
         {
             Name = "Soap";
             Expiration = 30;
+            FirstExpiration = Expiration;
         }
 
         public override void methodList()

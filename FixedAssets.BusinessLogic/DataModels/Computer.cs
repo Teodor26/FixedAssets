@@ -12,6 +12,7 @@ namespace FixedAssets.BusinessLogic.DataModels
         public Computer() {
             Name = "Computer";
             Expiration = 1000;
+            FirstExpiration = Expiration;
         }
 
         public override void methodList()

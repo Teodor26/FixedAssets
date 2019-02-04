@@ -14,6 +14,7 @@ namespace FixedAssets.BusinessLogic.DataModels
         {
             Name = "Furniture";
             Expiration = 365;
+            FirstExpiration = Expiration;
         }
 
         public override void methodList()

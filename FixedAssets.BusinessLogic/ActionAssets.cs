@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FixedAssets.BusinessLogic
@@ -17,6 +18,7 @@ namespace FixedAssets.BusinessLogic
 
     public class ActionAssets : BaseForAsset
     {
+        private const double Percent = 0.3;
 
         BaseForAsset[] assets = new BaseForAsset[4];
 
@@ -24,12 +26,16 @@ namespace FixedAssets.BusinessLogic
 
         public delegate void Message(string mes);
 
-        Message _mes;
+        public delegate void Info(string mes, string data,int data2);
+
+        private Info _info;
+
+        private Message _mes;
 
         public void Register(Message mes)
         {
             _mes = mes;
-        }
+        }        
 
         public ActionAssets()
         {
@@ -59,7 +65,7 @@ namespace FixedAssets.BusinessLogic
         {
             foreach (var c in dictionary)
             {
-                Console.WriteLine("{0} {1} days", c.Name, c.Expiration);
+                Console.WriteLine("{0} {1} days left", c.Name, c.Expiration);
             }
         }
 
@@ -68,6 +74,7 @@ namespace FixedAssets.BusinessLogic
             if (actionList.ContainsKey(Opt))
             {
                 actionList[Opt]();
+                Work();
             }
             else
                 _mes("That is wrong number. Input correct number");
@@ -80,12 +87,27 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0} {1}", c.Name, c.Expiration);
             }
-        }       
+        }
 
 
-        //public void Work()
-        //{
-        //    dictionary
-        //}
+        public void Work()
+        {
+            _mes("Working.........");
+            for (int i = 0; i < dictionary.Count; i++)
+            {
+                Thread.Sleep(1000);
+                Random rand = new Random();
+                int terminate = rand.Next(0, dictionary[i].FirstExpiration);
+                dictionary[i].Expiration = dictionary[i].Expiration - terminate;                
+                if ((double)dictionary[i].Expiration / (double)dictionary[i].FirstExpiration <= Percent)
+                {
+                    _mes("70 percent of depreciation. You should byt new equipment.");
+                }
+                if(dictionary[i].Expiration <= 0)
+                {
+                    dictionary.Remove(dictionary[i]);
+                }
+            }
+        }
     }
 }

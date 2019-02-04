@@ -29,7 +29,7 @@ namespace FixedAssets
                     else if (Opt == 6)
                     {
                         finish = false;
-                        
+
                     }
                     else
                     {
@@ -42,6 +42,7 @@ namespace FixedAssets
                 {
                     Console.WriteLine("That is not a number. Try again");
                     Console.ReadLine();
+                    Console.Clear();
                 }
 
             }
@@ -51,4 +52,5 @@ namespace FixedAssets
             Console.WriteLine(message);
         }
     }
+        
 }
