@@ -79,6 +79,12 @@ namespace FixedAssets.BusinessLogic
 
         public void Choise(int Opt)
         {
+            Random rand = new Random();
+            int result = rand.Next(1,5);
+
+            var thread = new Action(assets[result-1].methodList);
+            thread.BeginInvoke(null,null);
+
             if (actionList.ContainsKey(Opt))
             {
                 actionList[Opt]();               
@@ -92,10 +98,11 @@ namespace FixedAssets.BusinessLogic
         {
             Console.WriteLine("List of purchasing items.");
             Console.WriteLine();
-            dictionary = dictionary.OrderBy(x => x.Expiration).ToList();
-            foreach(var c in dictionary)
-            {
-                Console.WriteLine("Item {0} - {1} days left ", c.Name, c.Expiration);
+            dictionary = dictionary.OrderBy(x => x.Expiration).ToList();//Сортировка по оставшимся дням
+            int j = 1;
+            foreach (var c in dictionary)
+            {                
+                Console.WriteLine("{0}.{1} - {2} days left ",j++, c.Name, c.Expiration);
             }
             Console.ReadLine();
             Console.Clear();
@@ -112,18 +119,26 @@ namespace FixedAssets.BusinessLogic
 
         public void Work()
         {
-            _mes("Working.........");
+            _mes("Working....................................");
             for (int i = 0; i < dictionary.Count; i++)
             {
                 Thread.Sleep(1000);
                 Random rand = new Random();
+
                 int terminate = rand.Next(0, dictionary[i].FirstExpiration);
-                dictionary[i].Expiration = dictionary[i].Expiration - terminate;                
-                if ((double)dictionary[i].Expiration / (double)dictionary[i].FirstExpiration <= Percent)
+
+                dictionary[i].Expiration = dictionary[i].Expiration - terminate;  
+                
+                if ((double)dictionary[i].Expiration / dictionary[i].FirstExpiration <= Percent)
                 {
+                
                     Console.WriteLine($"70 percent of depreciation of {dictionary[i].Name}. You should purchase new {dictionary[i].Name}.");
+                    
+
+                    var order = new Action(dictionary[i].methodList);
+                    order.BeginInvoke(null,null);//Поставка новой продукции
                 }
-                if(dictionary[i].Expiration <= 0)
+                if (dictionary[i].Expiration <= 0)
                 {
                     outOfDaysList.Add(dictionary[i]);
                     dictionary.Remove(dictionary[i]);

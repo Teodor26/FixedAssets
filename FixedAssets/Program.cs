@@ -20,11 +20,8 @@ namespace FixedAssets
                 action.ShowName(); //показать список вещей, которые можно приобрести
                 if (int.TryParse(Console.ReadLine(), out int Opt))
                 {                    
-                    if (Opt == 8)
-                    {
-                        finish = false;
-
-                    }
+                    if (Opt == 8)                    
+                        finish = false;                    
                     else
                     {
                         Console.Clear();
