@@ -51,7 +51,8 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0}.{1}",j++,c.Name);
             }
-            Console.WriteLine("5.Log out");
+            _mes("5.Show the list"); 
+            _mes("6.Log out");
         }
 
         public void GetList()
@@ -81,5 +82,10 @@ namespace FixedAssets.BusinessLogic
             }
         }       
 
+
+        //public void Work()
+        //{
+        //    dictionary
+        //}
     }
 }

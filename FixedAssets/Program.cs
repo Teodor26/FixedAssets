@@ -22,13 +22,19 @@ namespace FixedAssets
                 {
                     if (Opt == 5)
                     {
+                        Console.Clear();
+                        action.GetList(); //показать список приобретенных вещей
+                        Console.ReadLine();
+                    }
+                    else if (Opt == 6)
+                    {
                         finish = false;
+                        
                     }
                     else
                     {
+                        Console.Clear();
                         action.Choise(Opt);
-                        action.GetList(); //показать список приобретенных вещей
-                        Console.ReadLine();
                     }
 
                 }
