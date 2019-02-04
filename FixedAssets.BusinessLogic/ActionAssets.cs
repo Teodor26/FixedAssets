@@ -53,9 +53,9 @@ namespace FixedAssets.BusinessLogic
         public void GetList()
         {
 
-            foreach (KeyValuePair<string, int> keyValue in dictionary)
+            foreach (var c in dictionary)
             {
-                Console.WriteLine("{0} {1} days", keyValue.Key, keyValue.Value);
+                Console.WriteLine("{0} {1} days", c.Name, c.Expiration);
             }
         }
 
@@ -74,7 +74,7 @@ namespace FixedAssets.BusinessLogic
         {
             foreach(var c in dictionary)
             {
-                Console.WriteLine("{0} {1}",c.Key, c.Value);
+                Console.WriteLine("{0} {1}",c.Name, c.Expiration);
             }
         }       
 

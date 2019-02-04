@@ -9,15 +9,16 @@ namespace FixedAssets.BusinessLogic.DataModels
     public class Computer:BaseForAsset
     {
        
-        public Computer()
-        {
+        public Computer() {
             Name = "Computer";
             Expiration = 1000;
         }
 
         public override void methodList()
         {
-            dictionary.Add(Name, Expiration);            
+            dictionary.Add(new Computer() {
+                
+            });            
         }
 
       

@@ -8,16 +8,19 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class HouseHoldItem : BaseForAsset
     {
-       
+
         public HouseHoldItem()
         {
             Name = "Soap";
-            Expiration = 30;          
+            Expiration = 30;
         }
 
         public override void methodList()
         {
-            dictionary.Add(Name, Expiration);
+            dictionary.Add(new Furniture()
+            {
+
+            });
         }
     }
 }

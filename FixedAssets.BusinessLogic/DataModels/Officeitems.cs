@@ -8,7 +8,7 @@ namespace FixedAssets.BusinessLogic.DataModels
 {
     public class Officeitems : BaseForAsset
     {
-      
+
         public Officeitems()
         {
             Name = "Office chair";
@@ -17,7 +17,10 @@ namespace FixedAssets.BusinessLogic.DataModels
 
         public override void methodList()
         {
-            dictionary.Add(Name, Expiration);
+            dictionary.Add(new Furniture()
+            {
+
+            });
         }
     }
 }

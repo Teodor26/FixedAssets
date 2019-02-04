@@ -15,13 +15,13 @@ namespace FixedAssets
             bool finish = true;
             while (finish)
             {
-                Console.Clear();
+               // Console.Clear();
                 Console.WriteLine("Opt the next equimpent to purchase:");
                 action.ShowName();//показать список вещей, которые можно приобрести
                 if (int.TryParse(Console.ReadLine(), out int Opt))
                 {
                     action.Choise(Opt);
-                    //action.GetList(); показать список приобретенных вещей
+                    action.GetList(); //показать список приобретенных вещей
                     Console.ReadLine();
                 }
                 else
