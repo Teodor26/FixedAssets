@@ -24,11 +24,7 @@ namespace FixedAssets.BusinessLogic
 
         Dictionary<int, Action> actionList = new Dictionary<int, Action>();
 
-        public delegate void Message(string mes);
-
-        public delegate void Info(string mes, string data,int data2);
-
-        private Info _info;
+        public delegate void Message(string mes);       
 
         private Message _mes;
 
@@ -101,7 +97,7 @@ namespace FixedAssets.BusinessLogic
                 dictionary[i].Expiration = dictionary[i].Expiration - terminate;                
                 if ((double)dictionary[i].Expiration / (double)dictionary[i].FirstExpiration <= Percent)
                 {
-                    _mes("70 percent of depreciation. You should byt new equipment.");
+                    Console.WriteLine($"70 percent of depreciation of {dictionary[i].Name}. You should purcase new {dictionary[i].Name}.");
                 }
                 if(dictionary[i].Expiration <= 0)
                 {
