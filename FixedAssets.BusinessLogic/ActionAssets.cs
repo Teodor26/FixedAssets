@@ -15,6 +15,12 @@ namespace FixedAssets.BusinessLogic
         Officeitems,
         HouseholdItem
     }
+    public enum Methods
+    {
+        showList = 5,
+        showOutofDayList,
+        Working
+    }
 
     public class ActionAssets : BaseForAsset
     {
@@ -44,9 +50,9 @@ namespace FixedAssets.BusinessLogic
             actionList.Add((int)Items.Furniture, assets[1].methodList);
             actionList.Add((int)Items.HouseholdItem, assets[2].methodList);
             actionList.Add((int)Items.Officeitems, assets[3].methodList);
-            actionList.Add(5, ShowList);
-            actionList.Add(6, ShowListOutOfDay);
-            actionList.Add(7, Work);
+            actionList.Add((int)Methods.showList, ShowList);
+            actionList.Add((int)Methods.showOutofDayList, ShowListOutOfDay);
+            actionList.Add((int)Methods.Working, Work);
         }
 
         public void ShowName()
@@ -84,17 +90,21 @@ namespace FixedAssets.BusinessLogic
         
         public void ShowList()
         {
+            Console.WriteLine("List of purchasing items.");
+            Console.WriteLine();
             foreach(var c in dictionary)
             {
-                Console.WriteLine("{0} {1}", c.Name, c.Expiration);
+                Console.WriteLine("Item {0} - {1} days left ", c.Name, c.Expiration);
             }
+            Console.ReadLine();
+            Console.Clear();
         }
 
         public void ShowListOutOfDay()
         {
             foreach(var c in outOfDaysList)
             {
-                Console.WriteLine("{0} {1}", c.Name, c.Expiration=0);
+                Console.WriteLine("Item {0} - has expires ", c.Name);
             }
             Console.ReadLine();
         }
