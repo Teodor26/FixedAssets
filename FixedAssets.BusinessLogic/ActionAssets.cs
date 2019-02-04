@@ -92,6 +92,7 @@ namespace FixedAssets.BusinessLogic
         {
             Console.WriteLine("List of purchasing items.");
             Console.WriteLine();
+            dictionary = dictionary.OrderBy(x => x.Expiration).ToList();
             foreach(var c in dictionary)
             {
                 Console.WriteLine("Item {0} - {1} days left ", c.Name, c.Expiration);
