@@ -6,20 +6,35 @@ namespace FixedAssets
 {
     class Program
     {
-        
+
         static void Main(string[] args)
-         {
+        {
             ActionAssets action = new ActionAssets();
-            Console.WriteLine("Hello customer. Opt the next equimpent to purchase:");
-            action.ShowName();
-            if (int.TryParse(Console.ReadLine(),out int Opt))
+            action.Register(ShowMessage);
+            Console.WriteLine("Hello customer.");
+            bool finish = true;
+            while (finish)
             {
-                
-                action.Choise(Opt);
-                action.GetList();
-            }
-            else
-                Console.WriteLine("That is not a number. Try again");
+                Console.Clear();
+                Console.WriteLine("Opt the next equimpent to purchase:");
+                action.ShowName();//показать список вещей, которые можно приобрести
+                if (int.TryParse(Console.ReadLine(), out int Opt))
+                {
+                    action.Choise(Opt);
+                    //action.GetList(); показать список приобретенных вещей
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("That is not a number. Try again");
+                    Console.ReadLine();
+                }                 
+
+            }            
+        }
+        private static void ShowMessage(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

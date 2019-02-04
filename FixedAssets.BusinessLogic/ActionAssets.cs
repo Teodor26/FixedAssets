@@ -21,6 +21,13 @@ namespace FixedAssets.BusinessLogic
 
         Dictionary<int, Action> actionList = new Dictionary<int, Action>();
 
+        public delegate void Message(string mes);
+        Message _mes;
+
+        public void Register(Message mes)
+        {
+            _mes = mes;
+        }
         public ActionAssets()
         {
             assets[0] = new Computer();
@@ -31,8 +38,7 @@ namespace FixedAssets.BusinessLogic
             actionList.Add((int)Items.Computer, assets[0].methodList);
             actionList.Add((int)Items.Furniture, assets[1].methodList);
             actionList.Add((int)Items.HouseholdItem, assets[2].methodList);
-            actionList.Add((int)Items.Officeitems, assets[3].methodList);
-                 
+            actionList.Add((int)Items.Officeitems, assets[3].methodList);                 
         }
 
         public void ShowName()
@@ -49,7 +55,7 @@ namespace FixedAssets.BusinessLogic
 
             foreach (KeyValuePair<string, int> keyValue in dictionary)
             {
-                Console.WriteLine("{0} {1}", keyValue.Key, keyValue.Value);
+                Console.WriteLine("{0} {1} days", keyValue.Key, keyValue.Value);
             }
         }
 
@@ -59,6 +65,9 @@ namespace FixedAssets.BusinessLogic
             {
                 actionList[Opt]();
             }
+            else
+                _mes("That is wrong number. Input correct number");
+            
         }
         
         public void ShowList()
@@ -67,8 +76,7 @@ namespace FixedAssets.BusinessLogic
             {
                 Console.WriteLine("{0} {1}",c.Key, c.Value);
             }
-        }
-
+        }       
 
     }
 }
