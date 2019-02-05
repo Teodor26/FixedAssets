@@ -82,8 +82,11 @@ namespace FixedAssets.BusinessLogic
             Random rand = new Random();
             int result = rand.Next(1,5);
 
-            var thread = new Action(assets[result-1].methodList);
-            thread.BeginInvoke(null,null);
+
+              Thread newThread = new Thread(assets[result - 1].methodList);
+            newThread.Start();
+            //var thread = new Action(assets[result-1].methodList);
+            //thread.BeginInvoke(null,null);
 
             if (actionList.ContainsKey(Opt))
             {
