@@ -83,7 +83,7 @@ namespace FixedAssets.BusinessLogic
             int result = rand.Next(1,5);
 
 
-              Thread newThread = new Thread(assets[result - 1].methodList);
+            Thread newThread = new Thread(assets[result - 1].methodList);
             newThread.Start();
             //var thread = new Action(assets[result-1].methodList);
             //thread.BeginInvoke(null,null);
