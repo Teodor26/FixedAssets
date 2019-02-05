@@ -122,7 +122,7 @@ namespace FixedAssets.BusinessLogic
             _mes("Working....................................");
             for (int i = 0; i < dictionary.Count; i++)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 Random rand = new Random();
 
                 int terminate = rand.Next(0, dictionary[i].FirstExpiration);
@@ -133,10 +133,11 @@ namespace FixedAssets.BusinessLogic
                 {
                 
                     Console.WriteLine($"70 percent of depreciation of {dictionary[i].Name}. You should purchase new {dictionary[i].Name}.");
-                    
 
-                    var order = new Action(dictionary[i].methodList);
-                    order.BeginInvoke(null,null);//Поставка новой продукции
+                    Thread thread = new Thread(dictionary[i].methodList);
+                    thread.Start();
+                    //var order = new Action(dictionary[i].methodList);
+                    //order.BeginInvoke(null,null);//Поставка новой продукции
                 }
                 if (dictionary[i].Expiration <= 0)
                 {
